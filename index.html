@@ -40,11 +40,34 @@
             margin: 40px 0;
         }
         .skills span {
-            display: inline-block;
+            position: relative;
             background: #1e1e1e;
             padding: 10px 15px;
             margin: 5px;
             border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .skills span::after {
+            content: attr(title);
+            position: absolute;
+            background: black;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            white-space: nowrap;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .skills span:hover::after {
+            opacity: 1;
+            visibility: visible;
         }
         footer {
             text-align: center;
@@ -57,13 +80,13 @@
     <header>
         <img src="profile.jpeg" alt="Your Photo">
         <h1>Gaurav Kumar</h1>
-        <p>Software Engineer | Problem Solver | Tech Enthusiast</p>
+        <p>Software Engineer | Problem Solver | Striving to Be a Better Human</p>
     </header>
     
     <div class="container">
         <div class="section">
             <h2>About Me</h2>
-            <p>Experienced software engineer with expertise in Rust, Kubernetes, and cloud security. Passionate about scalable systems and efficient code.</p>
+            <p>Experienced software engineer specializing in Rust, Kubernetes, and cloud security. Skilled in designing scalable backend systems, confidential computing, and microservices architecture. Passionate about building secure and efficient solutions for complex problems.</p>
         </div>
         
         <div class="skills">
@@ -100,7 +123,7 @@
         
         <div class="section">
             <h2>Contact</h2>
-            <p>Mobile No.: +918756746698</p>
+            <p>Mobile No: +918756746698</p>
             <p>Email: <a href="mailto:gauravsingh12341@gmail.com">gauravsingh12341@gmail.com</a></p>
             <p>GitHub: <a href="https://github.com/gausk" target="_blank">github.com/gausk</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/96ab9136" target="_blank">linkedin.com/in/96ab9136</a></p>
