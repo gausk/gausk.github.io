@@ -4,182 +4,859 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gaurav Kumar | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Gaurav Kumar - Lead Cloud Engineer specializing in Rust, Kubernetes, and Confidential Computing. IIT Kanpur graduate with 5+ years experience.">
+  <meta name="keywords" content="Cloud Engineer, Rust, Kubernetes, Confidential Computing, Software Engineer, IIT Kanpur">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    body {
+    :root {
+      --primary-color: #00d4aa;
+      --secondary-color: #1a1a1a;
+      --background-color: #0a0a0a;
+      --surface-color: #1e1e1e;
+      --text-primary: #ffffff;
+      --text-secondary: #b3b3b3;
+      --border-color: #333333;
+      --hover-color: #00f5c4;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #121212;
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background-color);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .mobile-menu span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      margin: 3px 0;
+      transition: 0.3s;
     }
 
     header {
       text-align: center;
-      padding: 3rem 1rem;
-      background: #1e1e1e;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(135deg, var(--background-color) 0%, var(--secondary-color) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     header img {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #fff;
-      margin-bottom: 1rem;
+      border: 4px solid var(--primary-color);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+      box-shadow: var(--shadow-lg);
+    }
+
+    header img:hover {
+      transform: scale(1.05);
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin: 0.5rem 0;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+      background: linear-gradient(135deg, var(--primary-color), var(--hover-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      border-bottom: 2px solid #333;
-      padding-bottom: 0.3rem;
+    .subtitle {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .education {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
       margin-top: 2rem;
     }
 
-    a {
-      color: #1db954;
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
       text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: var(--background-color);
+    }
+
+    .btn-primary:hover {
+      background: var(--hover-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-color);
+      color: var(--background-color);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     a:hover {
+      color: var(--hover-color);
       text-decoration: underline;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: auto;
-      padding: 2rem 1rem;
+      padding: 0 2rem;
     }
 
     .section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 4rem;
+      padding: 2rem 0;
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .about-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
     }
 
-    .skills span {
-      background: #1e1e1e;
-      padding: 8px 14px;
-      border-radius: 6px;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-item {
+      background: var(--surface-color);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
       position: relative;
-      font-size: 0.95rem;
-      cursor: default;
+      overflow: hidden;
     }
 
-    .skills span::after {
-      content: attr(title);
+    .skill-item::before {
+      content: '';
       position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #000;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.2s ease-in-out;
-      white-space: nowrap;
-      z-index: 10;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.1), transparent);
+      transition: left 0.5s ease;
     }
 
-    .skills span:hover::after {
-      opacity: 1;
-      visibility: visible;
+    .skill-item:hover::before {
+      left: 100%;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    .skill-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-experience {
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: var(--surface-color);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--hover-color));
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--surface-color);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary-color);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--background-color);
+    }
+
+    .contact-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      margin: 0;
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      background: #1e1e1e;
-      color: #bbb;
+      padding: 3rem 2rem;
+      background: var(--surface-color);
+      border-top: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-link {
+      width: 50px;
+      height: 50px;
+      background: var(--background-color);
+      border: 2px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-link:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 6rem 1rem 3rem;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      header img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="logo">GK</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
   <header>
-    <img src="profile.jpeg" alt="Gaurav Kumar Photo" />
-    <h1>Gaurav Kumar</h1>
-    <p>Lead Cloud Engineer | Rust, Kubernetes, Confidential Computing | IIT Kanpur</p>
-    <p>B.Tech, Mechanical Engineering (2019)</p>
+    <div class="hero-content fade-in-up">
+      <img src="profile.jpeg" alt="Gaurav Kumar Photo" />
+      <h1>Gaurav Kumar</h1>
+      <p class="subtitle">Lead Cloud Engineer | Rust, Kubernetes, Confidential Computing</p>
+      <p class="education">B.Tech, Mechanical Engineering (2019) | IIT Kanpur</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">
+          <i class="fas fa-envelope"></i>
+          Get In Touch
+        </a>
+        <a href="resume.pdf" target="_blank" class="btn btn-secondary">
+          <i class="fas fa-download"></i>
+          Download Resume
+        </a>
+      </div>
+    </div>
   </header>
 
   <main class="container">
-    <section class="section">
+    <!-- About Section -->
+    <section id="about" class="section fade-in-up">
       <h2>About Me</h2>
-      <p>
-        I am a passionate software engineer with experience building secure and scalable backend systems, specializing in Rust, Kubernetes, and confidential computing. 
-        At Fortanix and Citrix, I’ve led development across cloud-native services, confidential data pipelines, and AI-integrated systems. 
-        I'm deeply focused on designing resilient microservices and solving hard security problems in cloud infrastructure.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Skills</h2>
-      <div class="skills">
-        <span title="5+ years">Rust</span>
-        <span title="3+ years">Go</span>
-        <span title="3+ years">C++</span>
-        <span title="2+ years">Python</span>
-        <span title="2+ years">Prompt Engineering</span>
-        <span title="2+ years">RAG</span>
-        <span title="2+ years">Vector Databases</span>
-        <span title="6+ years">Kubernetes</span>
-        <span title="6+ years">Docker</span>
-        <span title="5+ years">Helm</span>
-        <span title="4+ years">Azure</span>
-        <span title="3+ years">AWS</span>
-        <span title="2+ years">GCP</span>
-        <span title="2+ years">Qdrant</span>
-        <span title="2+ years">Redis</span>
-        <span title="3+ years">Confidential Computing</span>
-        <span title="2+ years">Grafana</span>
-        <span title="2+ years">Splunk</span>
+      <div class="about-content">
+        <p>
+          I am a passionate software engineer with experience building secure and scalable backend systems, specializing in Rust, Kubernetes, and confidential computing. 
+          At Fortanix and Citrix, I've led development across cloud-native services, confidential data pipelines, and AI-integrated systems. 
+          I'm deeply focused on designing resilient microservices and solving hard security problems in cloud infrastructure.
+        </p>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="https://github.com/gausk/qa-ai" target="_blank">QA AI – Test Case Generation with LLM + Selenium</a></li>
-        <li><a href="https://ccm.fortanix.com" target="_blank">Fortanix CCM – Confidential Computing SaaS Platform</a></li>
-        <li>Confidential RAG Pipeline – Secure LLM Integration with Attestation</li>
-        <li>Kubernetes Secret Plugin – Encrypted etcd Storage via DSM</li>
-      </ul>
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in-up">
+      <h2>Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-name">Rust</div>
+          <div class="skill-experience">5+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Go</div>
+          <div class="skill-experience">3+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">C++</div>
+          <div class="skill-experience">3+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Python</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Kubernetes</div>
+          <div class="skill-experience">6+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Docker</div>
+          <div class="skill-experience">6+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Helm</div>
+          <div class="skill-experience">5+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Azure</div>
+          <div class="skill-experience">4+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">AWS</div>
+          <div class="skill-experience">3+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">GCP</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Prompt Engineering</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">RAG Systems</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Vector Databases</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Qdrant</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Redis</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Confidential Computing</div>
+          <div class="skill-experience">3+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Grafana</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Splunk</div>
+          <div class="skill-experience">2+ years</div>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Resume</h2>
-      <p><a href="resume.pdf" target="_blank">Download Resume (PDF)</a></p>
+    <!-- Projects Section -->
+    <section id="projects" class="section fade-in-up">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3 class="project-title">QA AI – Test Case Generation</h3>
+          <p class="project-description">
+            Advanced test case generation system using LLM integration with Selenium automation. 
+            Streamlines quality assurance processes through intelligent test scenario creation.
+          </p>
+          <a href="https://github.com/gausk/qa-ai" target="_blank" class="project-link">
+            <i class="fab fa-github"></i>
+            View on GitHub
+          </a>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Fortanix CCM Platform</h3>
+          <p class="project-description">
+            Confidential Computing SaaS Platform enabling secure cloud workloads with hardware-based attestation. 
+            Built with Rust and Kubernetes for enterprise-scale deployments.
+          </p>
+          <a href="https://ccm.fortanix.com" target="_blank" class="project-link">
+            <i class="fas fa-external-link-alt"></i>
+            Visit Platform
+          </a>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Confidential RAG Pipeline</h3>
+          <p class="project-description">
+            Secure LLM integration pipeline with hardware attestation ensuring data confidentiality 
+            throughout the retrieval-augmented generation process.
+          </p>
+          <div class="project-link">
+            <i class="fas fa-lock"></i>
+            Private Project
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Kubernetes Secret Plugin</h3>
+          <p class="project-description">
+            Custom Kubernetes plugin for encrypted etcd storage via Data Security Manager (DSM). 
+            Enhances cluster security through hardware-backed encryption.
+          </p>
+          <div class="project-link">
+            <i class="fas fa-shield-alt"></i>
+            Enterprise Project
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Contact</h2>
-      <p>📞 +91 87567 46698</p>
-      <p>📧 <a href="mailto:gauravsingh12341@gmail.com">gauravsingh12341@gmail.com</a></p>
-      <p>🌐 <a href="https://gauravkumarsingh.live" target="_blank">gauravkumarsingh.live</a></p>
-      <p>💻 <a href="https://github.com/gausk" target="_blank">github.com/gausk</a></p>
-      <p>🔗 <a href="https://www.linkedin.com/in/96ab9136" target="_blank">linkedin.com/in/96ab9136</a></p>
+    <!-- Contact Section -->
+    <section id="contact" class="section fade-in-up">
+      <h2>Get In Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-info">
+            <h3>Phone</h3>
+            <p>+91 87567 46698</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-info">
+            <h3>Email</h3>
+            <p><a href="mailto:gauravsingh12341@gmail.com">gauravsingh12341@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="contact-info">
+            <h3>Website</h3>
+            <p><a href="https://gauravkumarsingh.live" target="_blank">gauravkumarsingh.live</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-info">
+            <h3>GitHub</h3>
+            <p><a href="https://github.com/gausk" target="_blank">github.com/gausk</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-info">
+            <h3>LinkedIn</h3>
+            <p><a href="https://www.linkedin.com/in/96ab9136" target="_blank">linkedin.com/in/96ab9136</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div class="contact-info">
+            <h3>Resume</h3>
+            <p><a href="resume.pdf" target="_blank">Download PDF</a></p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Gaurav Kumar. All Rights Reserved.
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://github.com/gausk" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/96ab9136" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:gauravsingh12341@gmail.com" class="social-link">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://gauravkumarsingh.live" target="_blank" class="social-link">
+          <i class="fas fa-globe"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Gaurav Kumar. All Rights Reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections for animations
+    document.querySelectorAll('.section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(30px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(26, 26, 26, 0.98)';
+      } else {
+        nav.style.background = 'rgba(26, 26, 26, 0.95)';
+      }
+    });
+
+    // Mobile menu toggle (basic implementation)
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenu.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Add loading animation
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+    });
+
+    // Initialize
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.3s ease';
+  </script>
 </body>
 </html>
