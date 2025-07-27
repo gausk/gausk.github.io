@@ -1,147 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaurav Kumar | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #121212;
-            color: #fff;
-        }
-        header {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        header img {
-            width: 150px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-        }
-        h1 {
-            margin: 10px 0;
-            font-size: 2.5em;
-        }
-        p {
-            font-size: 1.2em;
-            opacity: 0.8;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        .section {
-            margin: 40px 0;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .skills span {
-            position: relative;
-            background: #1e1e1e;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaurav Kumar | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #fff;
+    }
 
-        .skills span::after {
-            content: attr(title);
-            position: absolute;
-            background: black;
-            color: white;
-            padding: 5px 8px;
-            border-radius: 5px;
-            white-space: nowrap;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease-in-out;
-        }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #1e1e1e;
+    }
 
-        .skills span:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            opacity: 0.7;
-        }
-    </style>
+    header img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+    }
+
+    a {
+      color: #1db954;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skills span {
+      background: #1e1e1e;
+      padding: 8px 14px;
+      border-radius: 6px;
+      position: relative;
+      font-size: 0.95rem;
+      cursor: default;
+    }
+
+    .skills span::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.2s ease-in-out;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .skills span:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background: #1e1e1e;
+      color: #bbb;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="profile.jpeg" alt="Your Photo">
-        <h1>Gaurav Kumar</h1>
-        <p>Software Engineer | Problem Solver | Striving to Be a Better Human</p>
-        <p>B.Tech in Mechanical Engineering, IIT Kanpur</p>
-    </header>
-    
-    <div class="container">
-        <div class="section">
-            <h2>About Me</h2>
-            <p>Experienced software engineer specializing in Rust, Kubernetes, and cloud security. Skilled in designing scalable backend systems, confidential computing, and microservices architecture. Passionate about building secure and efficient solutions for complex problems.</p>
-        </div>
-        
-        <div class="skills">
-            <div class="section">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <span title="5+ years">Rust</span>
-                    <span title="2+ years">Go</span>
-                    <span title="3+ years">C++</span>
-                    <span title="2+ years">Python</span>
-                    <span title="2+ years">RAG</span>
-                    <span title="2+ years">LLMs</span>
-                    <span title="6+ years">Kubernetes</span>
-                    <span title="6+ years">Docker</span>
-                    <span title="6+ years">Helm</span>
-                    <span title="5+ years">Data Security</span>
-                    <span title="4+ years">Cloud Security</span>
-                    <span title="1+ years">Blockchain</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Resume</h2>
-            <p><a href="resume.pdf" target="_blank" style="color: #1db954;">Download My Resume (PDF)</a></p>
-        </div>
-        
-        <div class="section">
-            <h2>Projects</h2>
-            <ul>
-                <li>
-                    <a href="https://github.com/gausk/qa-ai" target="_blank">
-                        QA AI - Test Case Generation and Live Testing with Selenium using LLM
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>Contact</h2>
-            <p>Mobile No: +918756746698</p>
-            <p>Email: <a href="mailto:gauravsingh12341@gmail.com">gauravsingh12341@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/gausk" target="_blank">github.com/gausk</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/96ab9136" target="_blank">linkedin.com/in/96ab9136</a></p>
-        </div>
-    </div>
-    
-    <footer>
-        &copy; 2025 Gaurav Kumar. All Rights Reserved.
-    </footer>
+  <header>
+    <img src="profile.jpeg" alt="Gaurav Kumar Photo" />
+    <h1>Gaurav Kumar</h1>
+    <p>Lead Cloud Engineer | Rust, Kubernetes, Confidential Computing | IIT Kanpur</p>
+    <p>B.Tech, Mechanical Engineering (2019)</p>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>About Me</h2>
+      <p>
+        I am a passionate software engineer with experience building secure and scalable backend systems, specializing in Rust, Kubernetes, and confidential computing. 
+        At Fortanix and Citrix, I’ve led development across cloud-native services, confidential data pipelines, and AI-integrated systems. 
+        I'm deeply focused on designing resilient microservices and solving hard security problems in cloud infrastructure.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span title="5+ years">Rust</span>
+        <span title="3+ years">Go</span>
+        <span title="3+ years">C++</span>
+        <span title="2+ years">Python</span>
+        <span title="2+ years">Prompt Engineering</span>
+        <span title="2+ years">RAG</span>
+        <span title="2+ years">Vector Databases</span>
+        <span title="6+ years">Kubernetes</span>
+        <span title="6+ years">Docker</span>
+        <span title="5+ years">Helm</span>
+        <span title="4+ years">Azure</span>
+        <span title="3+ years">AWS</span>
+        <span title="2+ years">GCP</span>
+        <span title="2+ years">Qdrant</span>
+        <span title="2+ years">Redis</span>
+        <span title="3+ years">Confidential Computing</span>
+        <span title="2+ years">Grafana</span>
+        <span title="2+ years">Splunk</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="https://github.com/gausk/qa-ai" target="_blank">QA AI – Test Case Generation with LLM + Selenium</a></li>
+        <li><a href="https://ccm.fortanix.com" target="_blank">Fortanix CCM – Confidential Computing SaaS Platform</a></li>
+        <li>Confidential RAG Pipeline – Secure LLM Integration with Attestation</li>
+        <li>Kubernetes Secret Plugin – Encrypted etcd Storage via DSM</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Resume</h2>
+      <p><a href="resume.pdf" target="_blank">Download Resume (PDF)</a></p>
+    </section>
+
+    <section class="section">
+      <h2>Contact</h2>
+      <p>📞 +91 87567 46698</p>
+      <p>📧 <a href="mailto:gauravsingh12341@gmail.com">gauravsingh12341@gmail.com</a></p>
+      <p>🌐 <a href="https://gauravkumarsingh.live" target="_blank">gauravkumarsingh.live</a></p>
+      <p>💻 <a href="https://github.com/gausk" target="_blank">github.com/gausk</a></p>
+      <p>🔗 <a href="https://www.linkedin.com/in/96ab9136" target="_blank">linkedin.com/in/96ab9136</a></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Gaurav Kumar. All Rights Reserved.
+  </footer>
 </body>
 </html>
