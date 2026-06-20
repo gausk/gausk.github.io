@@ -1,0 +1,132 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+\usepackage{tabu,marvosym,array,amsfonts}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\textcolor{blue}}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+\setlist{nosep}
+\usepackage[margin=0.20in, top=0.2in,bottom=0.25in]{geometry}
+\pagenumbering{gobble}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+}
+
+\begin{document}
+\begin{center}
+    {\textbf{\huge{GAURAV KUMAR}}} \\
+    \vspace{0.05cm}
+    Senior Staff Software Engineer $\vert$ Rust $\vert$ Go $\vert$ Distributed Systems $\vert$ Security $\vert$ Cloud Infrastructure \\
+    \vspace{0.05cm}
+    \faMobile \ \textcolor{blue}{(+91)-8756746698} \,\vert \, \href{mailto:gauravsingh12341@gmail.com}{\textnormal{ gauravsingh12341@gmail.com}} \, \vert
+    \, \href{https://gausk.github.io}{\textcolor{blue}{\textnormal{Website}}} \, \vert \,
+    \, \href{https://github.com/gausk}{\textcolor{blue}{\textnormal{Github}}} \, \vert \,
+    \href{https://www.linkedin.com/in/96ab9136/}{\textcolor{blue}{\textnormal{Linkedin}}} \\
+\end{center}
+
+\vspace{-0.8cm}
+
+\section*{Summary}
+
+Senior Staff Software Engineer with 7+ years of experience building distributed systems, cloud infrastructure, security platforms, and confidential computing solutions. Strong expertise in Rust, Go, Kubernetes, Linux, networking, and multi tenant SaaS architectures. Experienced in leading the design and development of large scale backend services, platform security features, remote attestation systems, AI infrastructure, and cloud native platforms across AWS, Azure, and GCP.
+
+
+\section*{Technical Skills}
+\vspace{-0.1cm}
+\begin{tabular}{L{0.1cm} L{5cm} l}
+&\textbf{Programming Skills:}      & Rust: 7y, C++: 3y, Python: 2y, Go: 3y, C: 2y \\
+&\textbf{AI Skills:}              & RAG, Prompt Engineering, Vector Databases, Embeddings, MCP \\
+&\textbf{Container Management:}  & Docker, Kubernetes, OpenShift, Helm, Operator, Docker Compose\\
+&\textbf{Cloud:}                 & Azure, AWS, GCP, IBM Cloud\\
+&\textbf{Networking:}            & TCP/IP, UDP, QUIC, HTTPS, gRPC, TLS/mTLS, Load Balancing, Proxying\\
+&\textbf{Security:}              & Confidential Computing, Remote Attestation, SGX, TDX, SEV-SNP, Zero Trust\\
+&\textbf{Database:}              & Cassandra, CockroachDB, Qdrant, Redis\\
+&\textbf{Automation/Build:}      & Jenkins\\
+&\textbf{Observability:} & Grafana, Splunk\\
+&\textbf{Debugging:}             & gdb, strace\\
+\end{tabular}
+
+\vspace{-0.4cm}
+
+\section*{Work Experience}
+\vspace{-0.2cm}
+\begin{itemize}[left=0em, label=]
+
+\item \textbf{\large{Senior Staff Software Engineer at Zscaler}} \hfill\textit{April 2026 -- Present}
+  \begin{itemize}[left=0.5em, label=\textbullet, leftmargin=*]
+    \setlength\itemsep{0em}
+    \item Contributing to the design and development of a unified data path platform used across multiple Zscaler products, enabling consistent traffic handling, improved observability, and reduced client complexity.
+    \item Drove adoption of the unified platform by integrating ZPA and ZIA traffic flows, establishing common processing and debugging workflows.
+    \item Led the integration of ZDX telemetry into the unified platform, delivering enhanced observability and end-to-end operational visibility.
+  \end{itemize}
+
+\item \textbf{\large{Lead Cloud Development Engineer at Citrix}} \hfill\textit{July 2025-- March 2026}
+  \begin{itemize}[left=0.5em, label=\textbullet, leftmargin=*]
+    \setlength\itemsep{0em}
+    \item Designed and developed Synthetic HDX, a distributed monitoring platform deployed across POPs that continuously validates EDT connectivity through local and inter POP application launches, with grafana dashboards providing real time service health and POP status.
+    \item Enhanced Edge Service security by adding Web Application Firewall (WAF) and rate-limiting controls.
+    \item Extended EDT NAK statistics to include range support.
+    \item Built a cgo wrapper for the EDT C library to enable safe and idiomatic Go APIs
+     \item Added EDT support in the CGS tool to enable secure, low-latency communication over UDP for virtual apps and desktops.
+  \end{itemize}
+
+\item \textbf{\large{Senior Software Engineer at Fortanix Inc.}} \hfill\textit{June 2019 -- June 2025}
+  \begin{itemize}[left=0.5em, label=\textbullet, leftmargin=*]
+    \setlength\itemsep{0em}
+
+    \item  \textbf{ArmetAI Team}
+    \begin{itemize}[leftmargin=*]
+    \item Contributed to the design and development of a confidential Retrieval-Augmented Generation (RAG) pipeline.
+    \item Implemented core backend services and integrated all microservices.
+    \item Designed and implemented attestation mechanisms for a new AMD Confidential VM platform with GPU support, enhancing security and verification processes.
+    \item Architected and implemented security hardening for the Qdrant vector database.
+    \item Added protections against prompt injection, jailbreak attacks, toxicity, PII exposure, and hallucination in the RAG pipeline.
+    \item Packaged and configured Armet AI services for deployment in Customer-Managed VPCs.
+    \end{itemize}
+
+    \item \textbf{Confidential Computing Manager (CCM) Team}
+    \begin{itemize}[leftmargin=*]
+    \item Conceived and implemented a confidential data clean room.
+    \item Spearheaded the Multi-Party Support feature, enabling collaborative workflow creation and execution across multiple accounts.
+    \item Developed a microservice for workflow monitoring, enabling efficient management of workflows.
+    \item Played a key role in the launch of the CCM SaaS product, a revolutionary platform for confidential computing (https://ccm.fortanix.com).
+    \item Architected and implemented core back-end functionalities, including the development of initial REST APIs, metering, and audit-logging microservices.
+    \item Delivered advanced features including DCAP attestation support, secure cluster join, multi-registry configuration, Node Agent packaging, and a Kubernetes Operator for CCM Node Agents.
+    \item Migrated CCM services to run on Ubuntu 24.04.
+    \end{itemize}
+
+    \item  \textbf{Data Security Manager}
+    \begin{itemize}[leftmargin=*]
+    \item Designed and developed a k8s plugin to encrypt secrets and ConfigMaps stored in etcd using DSM.
+    \item Implemented a plugin to securely inject secrets directly into Kubernetes workloads.
+    \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\section*{Education}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}r}
+    \textsc{May 2019} & B. Tech.\textsc{ Mechanical Engineering} {\textbf{IIT Kanpur}} & \textbf{7.6/10.0 }\\
+    \textsc{April 2015} & Class XII (\textsc{CBSE})  {\textsc{Secondary Delhi Public School,Gaya}} & \textbf{94.8\%}\\
+\end{tabular*}
+
+\vspace{-0.2cm}
+
+\bigskip
+
+\end{document}
